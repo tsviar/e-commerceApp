@@ -109,45 +109,16 @@ const WrapperDataManager = ({ children }) => {
 
     const lists_loaded_counter=0;
 
-    try {
-      // const ls_selected_map_location = await api.fetchListLS('selected_map_location');
-      // update_selected_map_location(ls_selected_map_location);
 
-       } catch (err) {
-        set_error_message(err.message);
-      }
 
     try {
-      // const ls_original_Locations_list = await api.fetchListLS('original_Locations_list');
-      // set_original_Locations_list(ls_original_Locations_list);
+      const ls_products_list = await api.fetchListLS('products_list');
+      set_products_list(ls_products_list);
       // update_selected_location(ls_original_Locations_list[0]);
-      // update_Locations_filtered_list( ls_original_Locations_list);
-
-
 
 
     } catch (err) {
       set_error_message(err.message);
-    }
-
-    // try {
-    //   const ls_filtered_Locations_list = await api.fetchListLS('filtered_Locations_list');
-    //   update_Locations_filtered_list(ls_filtered_Locations_list);
-    //   lists_loaded_counter +=1;
-
-    //   console.log(`DataManager fetchDataFromLocalStorage ls_filtered_Locations_list`, ls_filtered_Locations_list);
-    // } catch (err) {
-    //   set_error_message(err.message);
-    // }
-
-    try {
-      // const ls_categories_list = await api.fetchListLS('categories_list');
-      // set_categories_list(ls_categories_list);
-      // update_selected_category(ls_categories_list[0]);
-
-
-    } catch (err) {
-        set_error_message(err.message);
     }
 
 
@@ -209,7 +180,7 @@ const WrapperDataManager = ({ children }) => {
 
   useEffect(() => {
     console.log(`useEffect calling fetchDataFromLocalStorage`);
-    // fetchDataFromLocalStorage();
+    fetchDataFromLocalStorage();
 
 
   //  fetchData();
