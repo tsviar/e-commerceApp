@@ -13,15 +13,16 @@ const AddProductModal = () => {
     const {
         products_list,
         set_products_list,
+        selected_product,
         update_selected_product,
     } = useContext(StateDataManager);
 
     const [new_product, set_new_product] = useState(
       {
         id: products_list.length + 1,
-        title: ``,
-        price: 0,
-        description: '',
+        title: selected_product.title,
+        price: selected_product.price,
+        description: selected_product.description,
         image: "https://bulma.io/images/placeholders/128x128.png",
       },
     );
@@ -31,16 +32,31 @@ const AddProductModal = () => {
 
 
     useEffect(() => {
-      set_new_product( {
-        id: products_list.length + 1,
-        title: ``,
-        price: 0,
-        description: '',
-        image: "https://bulma.io/images/placeholders/128x128.png",
+
+      const addModalEl = document.getElementById('productAddModal')
+      addModalEl.addEventListener('show.bs.modal', function (event) {
+       update_selected_product( {
+          id: products_list.length + 1,
+          title: `Poduct ${products_list.length + 1}`,
+          price: 0,
+          description: '',
+          image: "https://bulma.io/images/placeholders/128x128.png",
+        });
+
+        set_new_product( {
+          id: products_list.length + 1,
+          title: `Poduct ${products_list.length + 1}`,
+          price: 0,
+          description: '',
+          image: "https://bulma.io/images/placeholders/128x128.png",
+        });
       });
-           validateProduct();
+
+
+      validateProduct();
 
     }, []);
+
 
 
 
