@@ -52,7 +52,7 @@ const WrapperDataManager = ({ children }) => {
       description: 'bljglfkjeklfhlewk',
       image: "https://bulma.io/images/placeholders/128x128.png",
     },
-            {
+    {
       id: 6,
       title: 'product 6',
       price: 6,
@@ -150,6 +150,7 @@ const WrapperDataManager = ({ children }) => {
         set_error_message(err.message);
       }
     }
+
 
     async function fetchCart() {
         try {

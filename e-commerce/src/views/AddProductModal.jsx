@@ -33,8 +33,12 @@ const AddProductModal = () => {
 
     useEffect(() => {
 
-      const addModalEl = document.getElementById('productAddModal')
-      addModalEl.addEventListener('show.bs.modal', function (event) {
+      const addModalEl = document.getElementById('productAddModal');
+
+      addModalEl.addEventListener('show.bs.modal',  (event) => {
+
+        console.log('Add show.bs.modal');
+
        update_selected_product( {
           id: products_list.length + 1,
           title: `Poduct ${products_list.length + 1}`,
@@ -327,6 +331,7 @@ const AddProductModal = () => {
 
 
       <div className="modal fade" id="productAddModal" tabIndex="-1"
+          data-bs-backdrop="static" data-bs-keyboard="false"
           aria-labelledby="productAddModalLabel" aria-hidden="true"
       >
         <div className="modal-dialog modal-lg pl-3">
@@ -347,17 +352,19 @@ const AddProductModal = () => {
   {/* onSubmit={handleSubmit} */}
             <div className=" container mr-auto ml-auto">
 
-              <form className="row g-3 needs-validation mr-auto ml-auto" noValidate
+              <form className="row g-2 g-lg-3 g-xl-3 needs-validation mr-auto ml-auto" noValidate
                 onSubmit={handleSubmit}
               >
 
                 <div className="modal-body ml-5" style={formBodyStyle}>
 
 
-                    <div className="row g-3 align-items-center mb-2 ">
+                    <div className="row g-2 g-lg-3 g-xl-3 align-items-center mb-2 ">
+
                       <div className="col-3 col-xl-2 col-lg-2 text-dark" >
                         <label htmlFor="productTitle" className="col-form-label">Title</label>
                       </div>
+
                       <div className="col-6">
                         <input type="text" id="productTitle" className="form-control" required
                               name = "title"
@@ -366,6 +373,7 @@ const AddProductModal = () => {
                               onChange={handleChange}
                               onBlur={handleBlur}
                         />
+
                         {/* <div class="valid-feedback">  Looks good!</div> */}
                         <div className="invalid-feedback">
                             Please provide a valid product title, that dosen't exist already.
@@ -377,12 +385,15 @@ const AddProductModal = () => {
                           e.g. product 1.
                         </span>
                       </div>
+
                     </div>
 
-                    <div className="row g-3 align-items-center mb-2">
+                    <div className="row g-2 g-lg-3 g-xl-3 align-items-center mb-2">
+
                       <div className="col-3 col-xl-2 col-lg-2 text-dark" >
                         <label htmlFor="productPrice" className="col-form-label">Price</label>
                       </div>
+
                       <div className="col-6">
                         <input type="number" id="productPrice" className="form-control" required
                                 name = "price"
@@ -400,12 +411,15 @@ const AddProductModal = () => {
                           ( USD $ ).
                         </span>
                       </div>
+
                     </div>
 
-                    <div className="row g-3 align-items-center mb-2">
+                    <div className="row g-2 g-lg-3 g-xl-3 align-items-center mb-2">
+
                       <div className="col-3 col-xl-2 col-lg-2  text-dark" >
                         <label htmlFor="productDescription" className="col-form-label">Description</label>
                       </div>
+
                       <div className="col-6">
                         <textarea id="productDescription" className="form-control" rows="3"
                                   name = "description"
@@ -421,13 +435,16 @@ const AddProductModal = () => {
                           (50 chars max).
                         </span>
                       </div>
+
                     </div>
 
 
-                    <div className="row g-3 align-items-center mb-2">
+                    <div className="row g-2 g-lg-3 g-xl-3 align-items-center mb-2">
+
                       <div className="col-3 col-xl-2 col-lg-2  text-dark" >
                         <label htmlFor="productImage" className="col-form-label">Image URL</label>
                       </div>
+
                       <div className="col-6">
                         <input type="url" id="productImage" className="form-control" required
                               name = "image"
@@ -439,9 +456,11 @@ const AddProductModal = () => {
                         />
                       </div>
 
-                      <div className="col-auto">
-                        <span id="productImageHelpInline" className="form-text">
-                          "Valid url: http://example.com"
+                      <div className="col-3 pr-auto mr-auto" >
+                        <span id="productImageHelpInline" className="form-text"
+                                style={{wordWrap: 'break-word',}}
+                        >
+                          Valid url: http://example.com
                         </span>
                       </div>
                       <div className="invalid-feedback">

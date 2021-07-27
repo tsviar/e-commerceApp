@@ -6,6 +6,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { makeStyles, styled } from '@material-ui/core/styles';
 
 import { StateDataManager } from "../stateProvider/DataManager";
+import * as api from "../services/StorageService";
+
 import Product from "./Product";
 import Cart from "./Cart";
 
@@ -28,10 +30,11 @@ const Home = () => {
     ));
 
 
-    // useEffect(() => {
+
+    useEffect(() => {
 
 
-    // }, [products_list, products_list.length]);
+    }, [products_list, products_list.length]);
 
 
     return (
