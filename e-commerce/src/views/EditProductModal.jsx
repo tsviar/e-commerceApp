@@ -38,13 +38,21 @@ const EditProductModal = (props) => {
 
     useEffect(() => {
 
-      // const addModalEl = document.getElementById(`productEditModal_${item.id}`);
+      const addModalEl = document.getElementById(`productEditModal_${item.id}`);
 
-      // addModalEl.addEventListener('show.bs.modal',  (event) => {
+      addModalEl.addEventListener('show.bs.modal',  (event) => {
 
-      //   console.log('Edit show.bs.modal event new_product item', event, new_product, item);
+        console.log('Edit show.bs.modal event new_product item', event, new_product, item);
 
-      // });
+            set_new_product( {
+              id: item.id,
+              title: item.title,
+              price: item.price,
+              description: item.description,
+              image: item.image,
+        });
+
+      });
 
 
       validateProduct();
@@ -92,23 +100,19 @@ const EditProductModal = (props) => {
 
 
 
-      if ( valid_flag ) {
+      // if ( valid_flag ) {
 
        update_selected_product({...new_product});
 
-      //  let new_products_list = products_list;
+       let new_products_list = products_list;
 
-      //   new_products_list.push({
-      //     id: products_list.length + 1 ,
-      //     title: new_product.title,
-      //     price: new_product.price,
-      //     description: new_product.description,
-      //     image: new_product.image,
-      //   });
+       const foundIndexEdit = new_products_list.findIndex(el => el.id === new_product.id);
 
-      //   set_products_list( [...new_products_list ] );
+       new_products_list[foundIndexEdit] = new_product;
 
-      //   storeData('products_list', new_products_list);
+       set_products_list( [...new_products_list ] );
+
+       storeData('products_list', new_products_list);
 
         // try {
         //     const response = await fetch("http://localhost:4000/cart", {
@@ -128,15 +132,8 @@ const EditProductModal = (props) => {
         //     console.log(err);
         // }
 
-       }
+      //  }
 
-        // set_new_product( {
-        //   id: products_list.length + 1,
-        //   title: ``,
-        //   price: 0,
-        //   description: '',
-        //   image: "https://bulma.io/images/placeholders/128x128.png",
-        // });
 
       event.preventDefault();
 
@@ -160,77 +157,77 @@ const EditProductModal = (props) => {
   // Validating input after every change
     const handleChange = event => {
 
-      // try {
-      //   const { name, value } = event.target; // destructure properties
-      //   let ev_value = value;
+      try {
+        const { name, value } = event.target; // destructure properties
+        let ev_value = value;
 
-      //   // do not disable it or u wont see any thing on screen and on related field
-      //   // if ( (name !== 'image') || (name === 'image' && value !== null && value !== '') ) {
+        // do not disable it or u wont see any thing on screen and on related field
+        // if ( (name !== 'image') || (name === 'image' && value !== null && value !== '') ) {
 
-      //       let found = false, valid = true;
+            let found = false, valid = true;
 
-      //       if (name === 'title') {
+            if (name === 'title') {
 
-      //           // find if title exists in locations list
+                // find if title exists in locations list
 
-      //           let exists = (element) => {
+                let exists = (element) => {
 
-      //             // checks whether an element is even
-      //             return element.title === value;
-      //           };
+                  // checks whether an element is even
+                  return element.title === value;
+                };
 
-      //           found = products_list.some(exists);
-
-
-      //           if ( found ) {
-      //             //do not disable it
-      //             // set_new_product(({ ...new_product, [name]: '', }));
-      //             event.target.value = '';
-      //             ev_value = '';
-
-      //              valid = false;
-      //           }
-
-      //       }
-
-      //       if ((name === 'price') &&  (value < 0) ) {
-      //         event.target.value = 0;
-      //         ev_value = 0;
-
-      //         // valid = false;
-      //       }
+                found = products_list.some(exists);
 
 
-      //         // if (name === 'image') {
-      //         //   let url;
+                if ( found ) {
+                  //do not disable it
+                  // set_new_product(({ ...new_product, [name]: '', }));
+                  event.target.value = '';
+                  ev_value = '';
 
-      //         //   try {
-      //         //     url = new URL(value);
-      //         //     ev_value = value;
-      //         //   } catch(TypeError) {
-      //         //     ev_value =  "https://bulma.io/images/placeholders/128x128.png";
-      //         //     // event.target.value ="https://bulma.io/images/placeholders/128x128.png";
-      //         //      valid = false;
-      //         //   }
+                   valid = false;
+                }
 
-      //         //   // valid = false;
+            }
 
-      //         // }
+            if ((name === 'price') &&  (value < 0) ) {
+              event.target.value = 0;
+              ev_value = 0;
 
-
-      //       if ( !found && valid ) {
-      //           // do not disable it
-      //         set_new_product(({ ...new_product, [name]: ev_value, }));
-
-      //       }
+              // valid = false;
+            }
 
 
-      //   // }
+              // if (name === 'image') {
+              //   let url;
+
+              //   try {
+              //     url = new URL(value);
+              //     ev_value = value;
+              //   } catch(TypeError) {
+              //     ev_value =  "https://bulma.io/images/placeholders/128x128.png";
+              //     // event.target.value ="https://bulma.io/images/placeholders/128x128.png";
+              //      valid = false;
+              //   }
+
+              //   // valid = false;
+
+              // }
 
 
-      // } catch (err) {
-      //   console.log(`handleChange caugt exception: ${err.message}`);
-      // }
+            if ( !found && valid ) {
+                // do not disable it
+              set_new_product(({ ...new_product, [name]: ev_value, }));
+
+            }
+
+
+        // }
+
+
+      } catch (err) {
+        console.log(`handleChange caugt exception: ${err.message}`);
+      }
 
 
     };
@@ -240,77 +237,76 @@ const EditProductModal = (props) => {
     //------------------------------------
     const handleBlur = event => {
 
+      try {
+        let error_msg = '';
+
+        const { name, value } = event.target; // destructure properties
+        let ev_value = value;
+
+        // console.log(`handleBlur 1 event.target ${name} = ${ev_value}`);
 
 
-      // try {
-      //   let error_msg = '';
 
-      //   const { name, value } = event.target; // destructure properties
-      //   let ev_value = value;
+        let validValue = ((ev_value !== ``) && (ev_value !== 'undefined')
+                          && (ev_value !== null) && ev_value < 0 );
 
-      //   console.log(`handleBlur 1 event.target ${name} = ${ev_value}`);
-
-      //   let validValue = ((ev_value !== ``) && (ev_value !== 'undefined')
-      //                     && (ev_value !== null) && ev_value < 0 );
-
-      //   let found = false;
+        let found = false;
 
 
       //   // handlse name validation
-      //   if (validValue && (name === 'title')) {
+        if (validValue && (name === 'title')) {
 
 
-      //     // find if title exists in locations list
+          // find if title exists in locations list
+
+          let exists = (element) => {
+
+            // checks whether an element is even
+            return element.title === ev_value;
+          };
+
+          found = products_list.some(exists);
 
 
-      //     let exists = (element) => {
+          if (found) {
+            // set_new_product(({ ...new_product, [name]: ``, }));
+            event.target.value = '';
+            ev_value = '';
+          }
 
-      //       // checks whether an element is even
-      //       return element.title === ev_value;
-      //     };
+        }
 
-      //     found = products_list.some(exists);
+        if (name === 'image') {
+          let url;
 
+          try {
+            url = new URL(value);
+          } catch(TypeError) {
+            ev_value =  "https://bulma.io/images/placeholders/128x128.png";
+             set_new_product(({ ...new_product, [name]: ev_value, }));
+            // validValue = false;
+          }
 
-      //     if (found) {
-      //       // set_new_product(({ ...new_product, [name]: ``, }));
-      //       event.target.value = '';
-      //       ev_value = '';
-      //     }
+        }
 
-      //   }
+        // if (!validValue) {
 
-      //   if (name === 'image') {
-      //     let url;
-
-      //     try {
-      //       url = new URL(value);
-      //     } catch(TypeError) {
-      //       ev_value =  "https://bulma.io/images/placeholders/128x128.png";
-      //        set_new_product(({ ...new_product, [name]: ev_value, }));
-      //       // validValue = false;
-      //     }
-
-      //   }
-
-      //   // if (!validValue) {
-
-      //   //   console.log(`error_msg ${error_msg} `);
-      //   // }
+        //   console.log(`error_msg ${error_msg} `);
+        // }
 
 
-      //   if (!found && validValue) {
+        if (!found && validValue) {
 
-      //     // if ( (name !== 'image') || (name === 'image' && ev_value !== null && ev_value !== '') ) {
-      //         // do not disable it
-      //         set_new_product(({ ...new_product, [name]: ev_value, }));
-      //     // }
+          // if ( (name !== 'image') || (name === 'image' && ev_value !== null && ev_value !== '') ) {
+              // do not disable it
+              set_new_product(({ ...new_product, [name]: ev_value, }));
+          // }
 
-      //   }
+        }
 
-      // } catch (err) {
-      //   console.log(`handleCBlur caugt exception: ${err.message}`);
-      // }
+      } catch (err) {
+        console.log(`handleCBlur caugt exception: ${err.message}`);
+      }
 
 
     };

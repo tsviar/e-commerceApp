@@ -19,11 +19,11 @@ const AddProductModal = () => {
 
     const [new_product, set_new_product] = useState(
       {
-        id: products_list.length + 1,
-        title: selected_product.title,
-        price: selected_product.price,
-        description: selected_product.description,
-        image: "https://bulma.io/images/placeholders/128x128.png",
+          id: products_list.length + 1,
+          title: `Product ${products_list.length + 1}`,
+          price: 0,
+          description: '',
+          image: "https://bulma.io/images/placeholders/128x128.png",
       },
     );
 
@@ -41,7 +41,7 @@ const AddProductModal = () => {
 
        update_selected_product( {
           id: products_list.length + 1,
-          title: `Poduct ${products_list.length + 1}`,
+          title: `Product ${products_list.length + 1}`,
           price: 0,
           description: '',
           image: "https://bulma.io/images/placeholders/128x128.png",
@@ -104,7 +104,7 @@ const AddProductModal = () => {
 
 
 
-      if ( valid_flag ) {
+      // if ( valid_flag ) {
 
        update_selected_product({...new_product});
 
@@ -140,7 +140,7 @@ const AddProductModal = () => {
         //     console.log(err);
         // }
 
-       }
+      //  }
 
         set_new_product( {
           id: products_list.length + 1,
