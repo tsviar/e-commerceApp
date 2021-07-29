@@ -77,6 +77,85 @@ const WrapperDataManager = ({ children }) => {
   const [loading_lists, set_loading_lists] = useState(true);
   const [error_message, set_error_message] = useState(null);
 
+
+   const [top_5_sold, set_top_5_sold] = useState([
+    {
+      title: 'product 1',
+      sold: 3,
+    },
+    {
+      title: 'product 2',
+      sold: 3,
+    },
+    {
+      title: 'product 3',
+      sold: 3,
+    },
+    {
+      title: 'product 4',
+      sold: 3,
+
+    },
+    {
+      title: 'product 5',
+      sold: 3,
+
+    },
+
+  ]);
+
+
+   const [top_5_uniq, set_top_5_uniq] = useState([
+    {
+      title: 'product 1',
+      sold: 3,
+    },
+    {
+      title: 'product 2',
+      sold: 3,
+    },
+    {
+      title: 'product 3',
+      sold: 3,
+    },
+    {
+      title: 'product 4',
+      sold: 3,
+
+    },
+    {
+      title: 'product 5',
+      sold: 3,
+
+    },
+
+  ]);
+
+
+   const [sales_5_days, set_sales_5_days] = useState([
+    {
+      title: '3.3.20', // date
+      sold: 3,
+    },
+    {
+      title: '4.3.20',
+      sold: 3,
+    },
+    {
+      title: '5.3.20',
+      sold: 3,
+    },
+     {
+      title: '6.3.20',
+      sold: 3,
+    },
+    {
+      title: '7.3.20',
+      sold: 3,
+    },
+
+  ]);
+
   // const [original_list, set_original_list] = useState([]);
   // const [filtered_list, update_filtered_list] = useState([]);
   // const [selected_card, update_selected_card] = useState({});
@@ -87,15 +166,23 @@ const WrapperDataManager = ({ children }) => {
     products_list,
     cart_list,
     selected_product,
+    top_5_sold,
+    top_5_uniq,
+    sales_5_days,
     loading_lists,
     error_message,
 
   };
 
+
+
   const actions = {
     set_products_list,
     set_cart_list,
     update_selected_product,
+    set_top_5_sold,
+    set_top_5_uniq,
+    set_sales_5_days,
     set_loading_lists,
     set_error_message,
 

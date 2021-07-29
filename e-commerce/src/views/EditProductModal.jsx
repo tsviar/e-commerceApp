@@ -529,38 +529,6 @@ export default EditProductModal;
 
   };
 
-  const cardStyle = {
-    margin: '0.1rem',
-    width: '10rem',
-    height: '20rem',
-    backgroundColor: 'white',
-    color: 'black',
-    cursor: 'pointer',
-
-  };
-
-  const imgStyle = {
-    flex: '0 0 40%',
-    height: '40%',
-    width:'100%',
-
-  };
-
-  const cardBodyStyle = {
-    flex: '0 0 50%',
-    height: '50%',
-    width:'100%',
-    fontSize: '1.1rem',
-    lineHeight: '1.15rem',
-  };
-
-  const descriptionStyle = {
-    flex: '0 0 40%',
-    height: '40%',
-    width:'100%',
-  };
-
-
 
 const btnStyle = {
 

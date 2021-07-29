@@ -22,8 +22,7 @@ const Home = () => {
     } = useContext(StateDataManager);
 
 
-    const create_list_ui = (items) =>
-    items.map(item => (
+    const create_list_ui = (items) => items.map(item => (
         // <CardItem key={item.id} >
            <Product key={item.id} {...item} />
         // </CardItem>
@@ -59,24 +58,17 @@ const Home = () => {
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                         <li>
                           <Cart/>
-                        {/* <a className="dropdown-item" href="#">Action</a> */}
                         </li>
 
-                        {/* <li><hr className="dropdown-divider"/></li>
-                        <li><a className="dropdown-item" href="#">Separated link</a></li> */}
+
                     </ul>
                 </div>
             </div>
 
-            {/* <div className="row mt-5 d-flex flex-row flex-wrap w-100">
-                <div className="col-12 d-flex flex-row flex-wrap "> */}
-                    <div
-                        className="shop-listing row mt-3 w-100 "
-                    >
-                        {create_list_ui(products_list)}
-                    </div>
-                {/* </div>
-            </div> */}
+            <div  className="shop-listing row mt-3 w-100 "  >
+                {create_list_ui(products_list)}
+            </div>
+
 
         </div>
 
