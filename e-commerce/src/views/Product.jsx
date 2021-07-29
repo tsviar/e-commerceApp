@@ -52,9 +52,9 @@ const Product = ({ id, title, price, description, image }) => {
 
   return (
 
+        // <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-3 m-0 mb-3" ></div>
 
-        <div className="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-3 m-0 mb-3" >
-
+        <div className="col-auto m-0 mb-3" >
 
             <div className="card shop-hover border-1 d-flex flex-column justify-content-start "
                 style={ cardStyle }
