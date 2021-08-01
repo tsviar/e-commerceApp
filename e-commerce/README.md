@@ -1,3 +1,40 @@
+# e-commerceApp
+A fullstack E-Commerce SPA app, using React and Bootstrap 5 on client side, and Node js on server side
+Contains 3 views:
+1) /admin:
+   This page will display all available products, in a table, one item in a row:
+                                                                  Add
+                      title          price              option
+
+                      product 1       3$              Edit  Delete
+                      ...
+
+
+   Top-Right corner contains an Add button.
+   Clicking the edit button will open a modal box to edit all product data.
+   Clicking the add button will open a modal box
+   that will allow the user to add a new product that will show in the list.
+
+2) /home view:
+   Shopping cart dropdown button, displaying cart items, an item name and price in a row.
+   Total sum and a Pay button at the end.
+   A grid of cards, a card for each product, displaying Image, title, description, Price and a Buy button.
+
+   Clicking on the shopping cart button will open a drop down that will display all current products
+   in it with prices and the total price. At the bottom of the drop down will be a “Pay” button that will
+   clear all the elements from the shopping cart and send the transaction to the server.
+
+3) /stats view
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+3 cards displaying statistics,
+a. Display the top 5 sold products
+b. Display the top 5 Unique sold products. i.e if a shopping cart contained more than one of
+   the same product, count as one.
+c. Display the sales on a daily basis for the past 5 days
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
